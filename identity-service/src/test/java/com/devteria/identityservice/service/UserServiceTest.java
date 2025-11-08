@@ -33,35 +33,36 @@ public class UserServiceTest {
     private UserRepository userRepository;
 
     private UserCreationRequest request;
-    private UserResponse userResponse;
     private User user;
-    private LocalDate dob;
 
     @BeforeEach
     void initData() {
-        dob = LocalDate.of(1990, 1, 1);
+        LocalDate dob = LocalDate.of(2003, 3, 15);
 
         request = UserCreationRequest.builder()
-                .username("john")
-                .firstName("John")
-                .lastName("Doe")
+                .username("ledinhthi")
                 .password("12345678")
+                .name("Lê Đình Thi")
+                .email("thile15032003@gmail.com")
+                .phoneNumber("0977590583")
                 .dob(dob)
                 .build();
 
-        userResponse = UserResponse.builder()
+        UserResponse userResponse = UserResponse.builder()
                 .id("cf0600f538b3")
-                .username("john")
-                .firstName("John")
-                .lastName("Doe")
+                .username("ledinhthi")
+                .name("Lê Đình Thi")
+                .email("thile15032003@gmail.com")
+                .phoneNumber("0977590583")
                 .dob(dob)
                 .build();
 
         user = User.builder()
                 .id("cf0600f538b3")
-                .username("john")
-                .firstName("John")
-                .lastName("Doe")
+                .username("ledinhthi")
+                .name("Lê Đình Thi")
+                .email("thile15032003@gmail.com")
+                .phoneNumber("0977590583")
                 .dob(dob)
                 .build();
     }
@@ -77,7 +78,7 @@ public class UserServiceTest {
         // THEN
 
         Assertions.assertThat(response.getId()).isEqualTo("cf0600f538b3");
-        Assertions.assertThat(response.getUsername()).isEqualTo("john");
+        Assertions.assertThat(response.getUsername()).isEqualTo("ledinhthi");
     }
 
     @Test
@@ -93,20 +94,20 @@ public class UserServiceTest {
     }
 
     @Test
-    @WithMockUser(username = "john")
+    @WithMockUser(username = "ledinhthi")
     void getMyInfo_valid_success() {
         when(userRepository.findByUsername(anyString())).thenReturn(Optional.of(user));
 
         var response = userService.getMyInfo();
 
-        Assertions.assertThat(response.getUsername()).isEqualTo("john");
+        Assertions.assertThat(response.getUsername()).isEqualTo("ledinhthi");
         Assertions.assertThat(response.getId()).isEqualTo("cf0600f538b3");
     }
 
     @Test
-    @WithMockUser(username = "john")
+    @WithMockUser(username = "ledinhthi")
     void getMyInfo_userNotFound_error() {
-        when(userRepository.findByUsername(anyString())).thenReturn(Optional.ofNullable(null));
+        when(userRepository.findByUsername(anyString())).thenReturn(Optional.empty());
 
         // WHEN
         var exception = assertThrows(AppException.class, () -> userService.getMyInfo());

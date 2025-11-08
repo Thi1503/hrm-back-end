@@ -2,7 +2,6 @@ package com.devteria.identityservice.controller;
 
 import java.util.List;
 
-import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 
 import org.springframework.web.bind.annotation.*;
@@ -13,6 +12,7 @@ import com.devteria.identityservice.dto.request.UserUpdateRequest;
 import com.devteria.identityservice.dto.response.UserResponse;
 import com.devteria.identityservice.service.UserService;
 
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;

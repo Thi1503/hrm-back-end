@@ -45,18 +45,18 @@ public class UserControllerTest {
         dob = LocalDate.of(1990, 1, 1);
 
         request = UserCreationRequest.builder()
-                .username("john")
-                .firstName("John")
-                .lastName("Doe")
+                .username("ledinhthi")
+                .email("thile15032003@gmail.com")
+                .name("Lê Đình Thi")
                 .password("12345678")
                 .dob(dob)
                 .build();
 
         userResponse = UserResponse.builder()
                 .id("cf0600f538b3")
-                .username("john")
-                .firstName("John")
-                .lastName("Doe")
+                .username("ledinhthi")
+                .email("thile15032003@gmail.com")
+                .name("Lê Đình Thi")
                 .dob(dob)
                 .build();
     }

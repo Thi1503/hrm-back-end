@@ -15,10 +15,11 @@ import lombok.experimental.FieldDefaults;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class UserUpdateRequest {
     String password;
-    String firstName;
-    String lastName;
+    String name;
+    String email;
+    String phoneNumber;
 
-    @DobConstraint(min = 18, message = "INVALID_DOB")
+    @DobConstraint(min = 15, message = "INVALID_DOB")
     LocalDate dob;
 
     List<String> roles;
