@@ -2,6 +2,7 @@ package com.devteria.identityservice.controller;
 
 import java.util.List;
 
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.web.bind.annotation.*;
 
 import com.devteria.identityservice.dto.request.ApiResponse;
@@ -14,6 +15,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
 import lombok.extern.slf4j.Slf4j;
 
+@Tag(name = "roles")
 @RestController
 @RequestMapping("/roles")
 @RequiredArgsConstructor

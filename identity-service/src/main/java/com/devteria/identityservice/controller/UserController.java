@@ -2,6 +2,7 @@ package com.devteria.identityservice.controller;
 
 import java.util.List;
 
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 
 import org.springframework.web.bind.annotation.*;
@@ -17,6 +18,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
 import lombok.extern.slf4j.Slf4j;
 
+@Tag(name = "users")
 @RestController
 @RequestMapping("/users")
 @RequiredArgsConstructor
